@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NewTodoForm } from "./NewTodoForm";
 import "./styles.css";
 import { TodoList } from "./TodoList";
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const localValue = localStorage.getItem("ITEM");
+    if (localValue == null) return [];
+
+    return JSON.parse(localValue);
+  });
+
+  // persisting data in local storage
+  useEffect(() => {
+    localStorage.setItem("ITEM", JSON.stringify(todos));
+  }, [todos]);
 
   function addTodo(title) {
     // Passing a function instead of passing a value that can be overwritten.
