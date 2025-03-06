@@ -44,6 +44,7 @@ export default function App() {
     });
   }
 
+  // Making props and giving them values
   return (
     <>
       <NewTodoForm onSubmit={addTodo} />

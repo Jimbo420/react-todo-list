@@ -1,5 +1,6 @@
 import { TodoItem } from "./TodoItem";
 
+// Using TodoList prop values
 export function TodoList({ todos, toggleTodo, deleteTodo }) {
   return (
     <ul className="list">
@@ -8,6 +9,7 @@ export function TodoList({ todos, toggleTodo, deleteTodo }) {
         return (
           <TodoItem
             {...todo}
+            // Key prop is used to identify the elements in the list
             key={todo.id}
             toggleTodo={toggleTodo}
             deleteTodo={deleteTodo}

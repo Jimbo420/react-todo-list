@@ -14,11 +14,13 @@ export function NewTodoForm({ onSubmit }) {
     setNewItem("");
   }
   return (
+    // Event handler to submit the form
     <form onSubmit={handleSubmit} className="new-item-form">
       <div className="form-row">
         <label htmlFor="item">New Item</label>
         <input
           value={newItem}
+          //Event handler to update the state
           onChange={(e) => setNewItem(e.target.value)}
           type="text"
           id="item"
